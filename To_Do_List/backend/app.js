@@ -36,6 +36,25 @@ app.post('/lists', (req, res) => {
         .catch(e => console.log(e))
 })
 
+app.get('/lists/:listId', (req, res) => {
+    List.find({ '_id': req.params.listId })
+        .then(list => res.send(list))
+        .catch(e => console.log(e))
+})
+
+app.patch('/lists/:listId', (req, res) => {
+    List.findOneAndUpdate({ '_id': req.params.listId }, { $set: req.body })
+        .then(list => res.send(list))
+        .catch(e => console.log(e))
+})
+
+
+app.delete('/lists/:listId', (req, res) => {
+    List.findByIdAndDelete(req.params.listId)
+        .then(list => res.send(list))
+        .catch(e => console.log(e))
+})
+
 app.listen(8000, () => {
     console.log("Server Connected on Port 8000");
 })
