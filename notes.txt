@@ -1,0 +1,11 @@
+NPM Commands Used:
+    npm i express mongoose
+MongoDB Queries
+    db.users.insertOne(<object>)
+    db.users.insertMany(<array of objects>)
+
+    db.users.find({})
+
+    db.users.update({username:"John Doe"},{$set:{username:"Johnny Doe"}})
+
+    db.users.deleteOne({username:"Sam Doe"})
