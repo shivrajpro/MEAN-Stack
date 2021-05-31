@@ -52,9 +52,24 @@ app.patch('/lists/:listId', (req, res) => {
 })
 
 app.delete('/lists/:listId', (req, res) => {
-    List.findByIdAndDelete(req.params.listId)
-        .then(list => res.send(list))
-        .catch(e => console.log(e))
+    // to delete all tasks under a list to be deleted
+    const deleteTasks = (list) => {
+        console.log('>> in deleteTasks list',list);
+        Task.deleteMany({ _listId: list._id })
+            .then(() => list)
+            .catch(e => console.log(e))
+
+    }
+
+
+    // List.findByIdAndDelete(req.params.listId)
+    //     .then(list => res.send(list))
+    //     .catch(e => console.log(e))
+    const list = List.findByIdAndDelete(req.params.listId)
+                    .then(list => deleteTasks(list))
+                    .catch(e => console.log(e))
+
+    res.status(200).send(list);
 })
 
 // ENDPOINTS for tasks
