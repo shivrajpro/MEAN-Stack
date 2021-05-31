@@ -1,3 +1,4 @@
+// https://www.youtube.com/watch?v=E-GA9GKJWuE&t=7224s
 const express = require('express');
 const app = express();
 
@@ -18,10 +19,12 @@ app.use((req, res, next) => {
 List: Create, Update, ReadOne, ReadAll, Delete
 Task: Create, Update, ReadOne, ReadAll, Delete
 */
+// A list can contain any number of tasks
 const List = require('./database/models/list');
 const Task = require('./database/models/task');
 app.use(express.json());
 
+// ENDPOINTS for Lists
 app.get('/lists', (req, res) => {
     List.find({})
         .then(lists => res.send(lists))
@@ -48,10 +51,42 @@ app.patch('/lists/:listId', (req, res) => {
         .catch(e => console.log(e))
 })
 
-
 app.delete('/lists/:listId', (req, res) => {
     List.findByIdAndDelete(req.params.listId)
         .then(list => res.send(list))
+        .catch(e => console.log(e))
+})
+
+// ENDPOINTS for tasks
+app.get("/lists/:listId/tasks", (req, res) => {
+    Task.find({ _listId: req.params.listId })
+        .then(task => res.send(task))
+        .catch(e => console.log(e))
+})
+
+app.post("/lists/:listId/tasks", (req, res) => {
+    (new Task({ 'title': req.body.title, _listId: req.params.listId }))
+        .save()
+        .then(task => res.send(task))
+        .catch(e => console.log(e))
+
+})
+
+app.get("/lists/:listId/tasks/:taskId", (req, res) => {
+    Task.findOne({ _listId: req.params.listId, _id: req.params.taskId })
+        .then(task => res.send(task))
+        .catch(e => console.log(e))
+})
+
+app.patch("/lists/:listId/tasks/:taskId", (req, res) => {
+    Task.findOneAndUpdate({ _listId: req.params.listId, _id: req.params.taskId }, { $set: req.body })
+        .then(task => res.send(task))
+        .catch(e => console.log(e))
+})
+
+app.delete("/lists/:listId/tasks/:taskId", (req, res) => {
+    Task.findOneAndDelete({ _listId: req.params.listId, _id: req.params.taskId })
+        .then(task => res.send(task))
         .catch(e => console.log(e))
 })
 
