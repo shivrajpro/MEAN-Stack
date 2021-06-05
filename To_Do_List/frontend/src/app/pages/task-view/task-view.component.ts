@@ -64,4 +64,12 @@ export class TaskViewComponent implements OnInit {
     })
   }
 
+  addTaskClick(){
+    if(!this.listId){
+      alert("Please select a list to add tasks");
+      return;
+    }
+
+    this.router.navigate(['./new-task'],{relativeTo:this.route});
+  }
 }

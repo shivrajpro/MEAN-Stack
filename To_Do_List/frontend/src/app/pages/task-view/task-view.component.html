@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </div>
-            <button>Add List</button>
+            <button routerLink='/new-list'>Add List</button>
         </div>
         <div class="task-list-container">
             <h1>Tasks</h1>
@@ -30,6 +30,7 @@
                     <span class="pull-right task-delete" (click)="deleteTask(task)" >X</span>
                 </p>
             </div>
+            <button (click)="addTaskClick()">Add Task</button>
         </div>
     </div>
 </div>
