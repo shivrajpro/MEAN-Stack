@@ -5,6 +5,11 @@ import { TaskViewComponent } from './pages/task-view/task-view.component';
 const routes: Routes = [
   {
     path:'',
+    redirectTo:'lists',
+    pathMatch:'full'
+  },
+  {
+    path:'lists',
     component: TaskViewComponent
   },
   {

@@ -6,7 +6,10 @@
                 <div class="title has-text-primary">
                     <h1>Lists</h1>
                     <div class="list-menu">
-                        <a href="#" class="list-menu-item active" *ngFor="let list of lists" >
+                        <a
+                        [routerLink]="['/lists', list._id, 'tasks']"
+                        routerLinkActive="active"
+                        class="list-menu-item" *ngFor="let list of lists" >
                             <p class="white-text">
                                 <!-- List 1 -->
                                 {{list.title}}
