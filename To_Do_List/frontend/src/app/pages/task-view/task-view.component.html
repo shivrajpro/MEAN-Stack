@@ -1,0 +1,31 @@
+<div class="container">
+    <p>task-view works!</p>
+    <div class="centered-content">
+        <div class="task-manager-container">
+            <div class="sidebar">
+                <div class="title has-text-primary">
+                    <h1>Lists</h1>
+                    <div class="list-menu">
+                        <a href="#" class="list-menu-item active" *ngFor="let list of lists" >
+                            <p class="white-text">
+                                <!-- List 1 -->
+                                {{list.title}}
+                                <span class="pull-right task-delete">X</span>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <button>Add List</button>
+        </div>
+        <div class="task-list-container">
+            <h1>Tasks</h1>
+            <div class="task">
+                <p class="white-text">
+                    Task
+                    <span class="pull-right task-delete">X</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
