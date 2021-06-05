@@ -1,1 +1,4 @@
 <p>new-list works!</p>
+<input type="text" #listTitle placeholder="enter title" />
+<button (click)="addNewList(listTitle.value)">Add</button>
+<button routerLink='/' >Cancel</button>

@@ -1,1 +1,4 @@
 <p>new-task works!</p>
+<input type="text" #taskTitle placeholder="enter title" />
+<button (click)="addNewTask(taskTitle.value)">Add</button>
+<button routerLink='/' >Cancel</button>
