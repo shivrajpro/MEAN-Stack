@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path:'',
     component: TaskViewComponent
+  },
+  {
+    path:'lists/:listId/tasks',
+    component: TaskViewComponent
   }
 ];
 
