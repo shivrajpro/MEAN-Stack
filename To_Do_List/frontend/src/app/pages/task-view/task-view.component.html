@@ -13,7 +13,7 @@
                             <p class="white-text">
                                 <!-- List 1 -->
                                 {{list.title}}
-                                <span class="pull-right task-delete">X</span>
+                                <span class="pull-right task-delete" (click)="deleteList(list)" >X</span>
                             </p>
                         </a>
                     </div>
@@ -27,7 +27,7 @@
                 <p class="white-text">
                     <!-- Task -->
                     {{task.title}}
-                    <span class="pull-right task-delete">X</span>
+                    <span class="pull-right task-delete" (click)="deleteTask(task)" >X</span>
                 </p>
             </div>
         </div>

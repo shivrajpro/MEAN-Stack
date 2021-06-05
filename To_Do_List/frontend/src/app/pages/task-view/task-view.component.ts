@@ -45,4 +45,23 @@ export class TaskViewComponent implements OnInit {
     )
   }
 
+  deleteTask(task:Task){
+    // console.log('>> task',task);
+    
+    // return;
+    // returns the task to be deleted
+    this.taskService.deleteTask(this.listId, task._id).subscribe((deletedTask:Task)=>{
+      this.tasks = this.tasks.filter(t=>t._id!==deletedTask._id);
+    })
+  }
+
+  deleteList(list:List){
+    console.log('>> l',list);
+    
+    // return;
+    this.taskService.deleteList(list._id).subscribe(()=>{
+      this.lists = this.lists.filter((l)=>l._id !== list._id);
+    })
+  }
+
 }
