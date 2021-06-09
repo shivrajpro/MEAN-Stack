@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <p>task-view works!</p>
     <div class="centered-content">
         <div class="task-manager-container">
@@ -11,7 +11,6 @@
                         routerLinkActive="active"
                         class="list-menu-item" *ngFor="let list of lists" >
                             <p class="white-text">
-                                <!-- List 1 -->
                                 {{list.title}}
                                 <span class="pull-right task-delete" (click)="deleteList(list)" >X</span>
                             </p>
@@ -25,7 +24,6 @@
             <h1>Tasks</h1>
             <div class="task" [class.complete]="task.completed" *ngFor="let task of tasks" (click)="onTaskClick(task)" >
                 <p class="white-text">
-                    <!-- Task -->
                     {{task.title}}
                     <span class="pull-right task-delete" (click)="deleteTask(task)" >X</span>
                 </p>
@@ -33,31 +31,33 @@
             <button (click)="addTaskClick()">Add Task</button>
         </div>
     </div>
-</div>
+</div> -->
 <hr>
 <div class="container">
     <div class="manager-container">
         <section class="lists lists-container">
-            <h1>Lists</h1>
+            <div class="list-container-top text-center">
+                <h1>Lists</h1>
+                <button class="btn btn-primary btn-sm"routerLink='/new-list'>+ Add List</button>
+            </div>
+
             <ul class="list-group">
-                <li class="list-item">
-                    List #1
-                    <span class="delete-icon">X</span>
-                </li>
-                <li class="list-item">
-                    List #2
-                    <span class="delete-icon">X</span>
-                </li>
-                <li class="list-item">
-                    List #3
+                <li class="list-item"[routerLink]="['/lists', list._id, 'tasks']"
+                routerLinkActive="active"
+                *ngFor="let list of lists">
+                    {{list.title}}
                     <span class="delete-icon">X</span>
                 </li>
             </ul>
         </section>
+
         <section class="tasks lists-container">
-            <h1>Tasks</h1>
+            <div class="tasks-container-top text-center">
+                <h1>Tasks</h1>
+                <button class="btn btn-primary btn-sm" (click)="addTaskClick()">+ Add Task</button>
+            </div>
             <ul class="list-group">
-                <li class="list-item">
+                <li class="list-item" [class.complete]="task.completed" *ngFor="let task of tasks" (click)="onTaskClick(task)" >
                     Task #1
                     <span class="delete-icon">X</span>
                 </li>
