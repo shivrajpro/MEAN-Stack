@@ -5,3 +5,38 @@
 a.active p{
     background: gray;
 }
+
+.manager-container{
+    border: 1px solid black;
+    display: flex;
+    width: 100%;
+}
+
+.lists.lists-container{
+    // border: 1px solid green;
+    width: 30%;
+}
+
+.tasks.lists-container{
+    // border: 1px solid green;
+    width: 70%;
+}
+
+.lists-container{
+    
+    .list-group{
+        border: 1px solid red;
+        padding: 4px 4px;
+
+        .list-item{
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 4px;
+            margin: 2px;
+            border: 1px solid blue;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    }
+}
