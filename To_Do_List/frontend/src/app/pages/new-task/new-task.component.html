@@ -1,4 +1,5 @@
-<p>new-task works!</p>
-<input type="text" #taskTitle placeholder="enter title" />
-<button (click)="addNewTask(taskTitle.value)">Add</button>
-<button routerLink='/' >Cancel</button>
+<section class="text-center mt-2">
+    <input type="text" #taskTitle placeholder="Enter Title"/>
+    <button class="my-btn btn-success mx-2" (click)="addNewTask(taskTitle.value)" >Add</button>
+    <button class="my-btn btn-danger" routerLink='/'>Cancel</button>
+</section>

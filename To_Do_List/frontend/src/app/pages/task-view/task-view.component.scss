@@ -1,5 +1,6 @@
 .complete{
-    background: red;
+    // background: red;
+    text-decoration: line-through;
 }
 
 a.active p{
@@ -7,7 +8,7 @@ a.active p{
 }
 
 .manager-container{
-    border: 1px solid black;
+    // border: 1px solid black;
     display: flex;
     width: 100%;
 }
@@ -25,7 +26,7 @@ a.active p{
 .lists-container{
     
     .list-group{
-        border: 1px solid red;
+        // border: 1px solid red;
         padding: 4px 4px;
 
         .list-item{

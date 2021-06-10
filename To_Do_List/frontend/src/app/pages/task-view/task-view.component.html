@@ -32,7 +32,7 @@
         </div>
     </div>
 </div> -->
-<hr>
+<!-- <hr> -->
 <div class="container">
     <div class="manager-container">
         <section class="lists lists-container">
@@ -55,18 +55,11 @@
             <div class="tasks-container-top text-center">
                 <h1>Tasks</h1>
                 <button class="btn btn-primary btn-sm" (click)="addTaskClick()">+ Add Task</button>
+                <p class="my-3" *ngIf="tasks.length === 0">No tasks found in this list</p>
             </div>
             <ul class="list-group">
                 <li class="list-item" [class.complete]="task.completed" *ngFor="let task of tasks" (click)="onTaskClick(task)" >
-                    Task #1
-                    <span class="delete-icon">X</span>
-                </li>
-                <li class="list-item">
-                    Task #2
-                    <span class="delete-icon">X</span>
-                </li>
-                <li class="list-item">
-                    Task #3
+                    {{task.title}}
                     <span class="delete-icon">X</span>
                 </li>
             </ul>
